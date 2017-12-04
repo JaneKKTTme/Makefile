@@ -4,17 +4,19 @@
 int main( int argc, char* argv[])
 {
     double kel, cel, farn;
-
+    float input;
+    input = atof(argv[1]);
+    
     if ( argc == 3 )
     {
         switch(argv[2][0])
         {
             case 'C':
                 case 'c':
-                    if ( atof(argv[1]) > -273,15 )
+                    if ( input > -273,15 )
                     {
-                        farn = atof(argv[1])*9/5.0+32;
-                        kel = atof(argv[1])+273.15;
+                        farn = input*9/5+32;
+                        kel = input+273.15;
                         printf("%.2lf F\n%.2lf K\n", farn, kel);
                     }
                     else
@@ -24,9 +26,9 @@ int main( int argc, char* argv[])
                     break;
             case 'K':
                 case 'k':
-                    if ( atof(argv[1]) > 0 )
+                    if ( input > 0 )
                     {
-                        cel = atof(argv[1])-273.15;
+                        cel = input-273.15;
                         farn = cel*9/5+32;
                         printf("%.2lf F\n%.2lf C\n", farn, cel);
                     }
@@ -37,9 +39,9 @@ int main( int argc, char* argv[])
                     break;
             case 'F':
                 case 'f':
-                    if ( atof(argv[1]) > -459,67 )
+                    if ( input > -459,67 )
                     {
-                        cel = (atof(argv[1])-32)*5/9.0;
+                        cel = (input-32)*5/9.0;
                         kel = cel-273.15;
                         printf("%.2lf C\n%.2lf K\n", cel, kel);
                     }
@@ -53,11 +55,11 @@ int main( int argc, char* argv[])
     else
     if ( argc == 2 )
     {
-        if ( atof(argv[1]) > -273,15 )
+        if ( input > -273,15 )
         {
-            farn = atof(argv[1])*9/5.0+32;
-            kel = atof(argv[1])+273.15;
-            printf("%.2lf C:\n%.2lf F\n%.2lf K\n\n", atof(argv[1]), farn, kel);
+            farn = input*9/5.0+32;
+            kel = input+273.15;
+            printf("%.2lf C:\n%.2lf F\n%.2lf K\n\n", input, farn, kel);
         }
         else
         {
@@ -65,11 +67,11 @@ int main( int argc, char* argv[])
         }
         farn=0; kel=0;
 
-        if ( atof(argv[1]) > 0 )
+        if ( input > 0 )
         {
-            cel = atof(argv[1])-273.15;
+            cel = input-273.15;
             farn = cel*9/5+32;
-            printf("%.2lf K:\n%.2lf F\n%.2lf C\n\n", atof(argv[1]), farn, cel);
+            printf("%.2lf K:\n%.2lf F\n%.2lf C\n\n", input, farn, cel);
         }
         else
         {
@@ -77,11 +79,11 @@ int main( int argc, char* argv[])
         }
         farn=0; cel=0;
 
-        if ( atof(argv[1]) > -459,67 )
+        if ( input > -459,67 )
         {
-            cel = (atof(argv[1])-32)*5/9;
+            cel = (input-32)*5/9;
             kel = cel-273.15;
-            printf("%.2lf F:\n%.2lf C\n%.2lf K\n\n", atof(argv[1]), cel, kel);
+            printf("%.2lf F:\n%.2lf C\n%.2lf K\n\n", input, cel, kel);
         }
         else
         {
